@@ -1,0 +1,714 @@
+[
+  {
+    "task_id": "adaptive-rejection-sampler",
+    "category": "scientific-computing",
+    "difficulty": "medium",
+    "instruction_chars": 2665,
+    "solution_chars": 15365,
+    "files": 7
+  },
+  {
+    "task_id": "bn-fit-modify",
+    "category": "scientific-computing",
+    "difficulty": "hard",
+    "instruction_chars": 1256,
+    "solution_chars": 3932,
+    "files": 6
+  },
+  {
+    "task_id": "break-filter-js-from-html",
+    "category": "security",
+    "difficulty": "medium",
+    "instruction_chars": 559,
+    "solution_chars": 273,
+    "files": 10
+  },
+  {
+    "task_id": "build-cython-ext",
+    "category": "debugging",
+    "difficulty": "medium",
+    "instruction_chars": 1614,
+    "solution_chars": 1088,
+    "files": 6
+  },
+  {
+    "task_id": "build-pmars",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 528,
+    "solution_chars": 923,
+    "files": 8
+  },
+  {
+    "task_id": "build-pov-ray",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 511,
+    "solution_chars": 3293,
+    "files": 8
+  },
+  {
+    "task_id": "caffe-cifar-10",
+    "category": "machine-learning",
+    "difficulty": "medium",
+    "instruction_chars": 553,
+    "solution_chars": 2311,
+    "files": 6
+  },
+  {
+    "task_id": "cancel-async-tasks",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 537,
+    "solution_chars": 709,
+    "files": 7
+  },
+  {
+    "task_id": "chess-best-move",
+    "category": "games",
+    "difficulty": "medium",
+    "instruction_chars": 260,
+    "solution_chars": 7555,
+    "files": 7
+  },
+  {
+    "task_id": "circuit-fibsqrt",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 851,
+    "solution_chars": 13686,
+    "files": 10
+  },
+  {
+    "task_id": "cobol-modernization",
+    "category": "software-engineering",
+    "difficulty": "easy",
+    "instruction_chars": 1215,
+    "solution_chars": 4555,
+    "files": 11
+  },
+  {
+    "task_id": "code-from-image",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 321,
+    "solution_chars": 1083,
+    "files": 7
+  },
+  {
+    "task_id": "compile-compcert",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 325,
+    "solution_chars": 1529,
+    "files": 8
+  },
+  {
+    "task_id": "configure-git-webserver",
+    "category": "system-administration",
+    "difficulty": "hard",
+    "instruction_chars": 451,
+    "solution_chars": 2354,
+    "files": 7
+  },
+  {
+    "task_id": "constraints-scheduling",
+    "category": "personal-assistant",
+    "difficulty": "medium",
+    "instruction_chars": 2415,
+    "solution_chars": 5721,
+    "files": 9
+  },
+  {
+    "task_id": "count-dataset-tokens",
+    "category": "model-training",
+    "difficulty": "medium",
+    "instruction_chars": 424,
+    "solution_chars": 1036,
+    "files": 6
+  },
+  {
+    "task_id": "crack-7z-hash",
+    "category": "security",
+    "difficulty": "medium",
+    "instruction_chars": 123,
+    "solution_chars": 1049,
+    "files": 7
+  },
+  {
+    "task_id": "custom-memory-heap-crash",
+    "category": "debugging",
+    "difficulty": "medium",
+    "instruction_chars": 975,
+    "solution_chars": 4918,
+    "files": 11
+  },
+  {
+    "task_id": "db-wal-recovery",
+    "category": "file-operations",
+    "difficulty": "medium",
+    "instruction_chars": 658,
+    "solution_chars": 3080,
+    "files": 8
+  },
+  {
+    "task_id": "distribution-search",
+    "category": "machine-learning",
+    "difficulty": "medium",
+    "instruction_chars": 1143,
+    "solution_chars": 11386,
+    "files": 6
+  },
+  {
+    "task_id": "dna-assembly",
+    "category": "scientific-computing",
+    "difficulty": "hard",
+    "instruction_chars": 1906,
+    "solution_chars": 3540,
+    "files": 7
+  },
+  {
+    "task_id": "dna-insert",
+    "category": "scientific-computing",
+    "difficulty": "medium",
+    "instruction_chars": 1108,
+    "solution_chars": 1358,
+    "files": 7
+  },
+  {
+    "task_id": "extract-elf",
+    "category": "file-operations",
+    "difficulty": "medium",
+    "instruction_chars": 680,
+    "solution_chars": 9479,
+    "files": 7
+  },
+  {
+    "task_id": "extract-moves-from-video",
+    "category": "file-operations",
+    "difficulty": "hard",
+    "instruction_chars": 260,
+    "solution_chars": 7685,
+    "files": 6
+  },
+  {
+    "task_id": "feal-differential-cryptanalysis",
+    "category": "mathematics",
+    "difficulty": "hard",
+    "instruction_chars": 548,
+    "solution_chars": 2644,
+    "files": 11
+  },
+  {
+    "task_id": "feal-linear-cryptanalysis",
+    "category": "mathematics",
+    "difficulty": "hard",
+    "instruction_chars": 618,
+    "solution_chars": 7724,
+    "files": 9
+  },
+  {
+    "task_id": "filter-js-from-html",
+    "category": "security",
+    "difficulty": "medium",
+    "instruction_chars": 596,
+    "solution_chars": 1267,
+    "files": 6
+  },
+  {
+    "task_id": "financial-document-processor",
+    "category": "data-processing",
+    "difficulty": "medium",
+    "instruction_chars": 1055,
+    "solution_chars": 11635,
+    "files": 24
+  },
+  {
+    "task_id": "fix-code-vulnerability",
+    "category": "security",
+    "difficulty": "hard",
+    "instruction_chars": 3873,
+    "solution_chars": 913,
+    "files": 6
+  },
+  {
+    "task_id": "fix-git",
+    "category": "software-engineering",
+    "difficulty": "easy",
+    "instruction_chars": 158,
+    "solution_chars": 329,
+    "files": 9
+  },
+  {
+    "task_id": "fix-ocaml-gc",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 471,
+    "solution_chars": 271,
+    "files": 6
+  },
+  {
+    "task_id": "gcode-to-text",
+    "category": "file-operations",
+    "difficulty": "medium",
+    "instruction_chars": 216,
+    "solution_chars": 8880,
+    "files": 7
+  },
+  {
+    "task_id": "git-leak-recovery",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 474,
+    "solution_chars": 1422,
+    "files": 7
+  },
+  {
+    "task_id": "git-multibranch",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 1093,
+    "solution_chars": 1281,
+    "files": 7
+  },
+  {
+    "task_id": "gpt2-codegolf",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 451,
+    "solution_chars": 3437,
+    "files": 6
+  },
+  {
+    "task_id": "headless-terminal",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 755,
+    "solution_chars": 72,
+    "files": 8
+  },
+  {
+    "task_id": "hf-model-inference",
+    "category": "data-science",
+    "difficulty": "medium",
+    "instruction_chars": 1264,
+    "solution_chars": 3190,
+    "files": 6
+  },
+  {
+    "task_id": "install-windows-3.11",
+    "category": "system-administration",
+    "difficulty": "hard",
+    "instruction_chars": 938,
+    "solution_chars": 6339,
+    "files": 15
+  },
+  {
+    "task_id": "kv-store-grpc",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 1124,
+    "solution_chars": 1992,
+    "files": 6
+  },
+  {
+    "task_id": "large-scale-text-editing",
+    "category": "file-operations",
+    "difficulty": "medium",
+    "instruction_chars": 1193,
+    "solution_chars": 778,
+    "files": 10
+  },
+  {
+    "task_id": "largest-eigenval",
+    "category": "mathematics",
+    "difficulty": "medium",
+    "instruction_chars": 716,
+    "solution_chars": 650,
+    "files": 8
+  },
+  {
+    "task_id": "llm-inference-batching-scheduler",
+    "category": "machine-learning",
+    "difficulty": "hard",
+    "instruction_chars": 4365,
+    "solution_chars": 15430,
+    "files": 13
+  },
+  {
+    "task_id": "log-summary-date-ranges",
+    "category": "data-processing",
+    "difficulty": "medium",
+    "instruction_chars": 1391,
+    "solution_chars": 2170,
+    "files": 7
+  },
+  {
+    "task_id": "mailman",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 983,
+    "solution_chars": 4485,
+    "files": 7
+  },
+  {
+    "task_id": "make-doom-for-mips",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 501,
+    "solution_chars": 440365,
+    "files": 9
+  },
+  {
+    "task_id": "make-mips-interpreter",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 499,
+    "solution_chars": 64956,
+    "files": 8
+  },
+  {
+    "task_id": "mcmc-sampling-stan",
+    "category": "data-science",
+    "difficulty": "hard",
+    "instruction_chars": 1428,
+    "solution_chars": 3954,
+    "files": 7
+  },
+  {
+    "task_id": "merge-diff-arc-agi-task",
+    "category": "debugging",
+    "difficulty": "medium",
+    "instruction_chars": 1629,
+    "solution_chars": 1305,
+    "files": 10
+  },
+  {
+    "task_id": "model-extraction-relu-logits",
+    "category": "mathematics",
+    "difficulty": "hard",
+    "instruction_chars": 576,
+    "solution_chars": 12714,
+    "files": 7
+  },
+  {
+    "task_id": "modernize-scientific-stack",
+    "category": "scientific-computing",
+    "difficulty": "medium",
+    "instruction_chars": 1189,
+    "solution_chars": 1401,
+    "files": 11
+  },
+  {
+    "task_id": "mteb-leaderboard",
+    "category": "data-science",
+    "difficulty": "medium",
+    "instruction_chars": 317,
+    "solution_chars": 2550,
+    "files": 6
+  },
+  {
+    "task_id": "mteb-retrieve",
+    "category": "data-science",
+    "difficulty": "medium",
+    "instruction_chars": 366,
+    "solution_chars": 870,
+    "files": 7
+  },
+  {
+    "task_id": "multi-source-data-merger",
+    "category": "data-processing",
+    "difficulty": "medium",
+    "instruction_chars": 1912,
+    "solution_chars": 4315,
+    "files": 9
+  },
+  {
+    "task_id": "nginx-request-logging",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 1882,
+    "solution_chars": 1790,
+    "files": 6
+  },
+  {
+    "task_id": "openssl-selfsigned-cert",
+    "category": "security",
+    "difficulty": "medium",
+    "instruction_chars": 1381,
+    "solution_chars": 3135,
+    "files": 6
+  },
+  {
+    "task_id": "overfull-hbox",
+    "category": "debugging",
+    "difficulty": "easy",
+    "instruction_chars": 366,
+    "solution_chars": 3145,
+    "files": 13
+  },
+  {
+    "task_id": "password-recovery",
+    "category": "security",
+    "difficulty": "hard",
+    "instruction_chars": 644,
+    "solution_chars": 3071,
+    "files": 7
+  },
+  {
+    "task_id": "path-tracing",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 808,
+    "solution_chars": 4017,
+    "files": 7
+  },
+  {
+    "task_id": "path-tracing-reverse",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 531,
+    "solution_chars": 4011,
+    "files": 7
+  },
+  {
+    "task_id": "polyglot-c-py",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 339,
+    "solution_chars": 1386,
+    "files": 6
+  },
+  {
+    "task_id": "polyglot-rust-c",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 369,
+    "solution_chars": 2255,
+    "files": 6
+  },
+  {
+    "task_id": "portfolio-optimization",
+    "category": "optimization",
+    "difficulty": "medium",
+    "instruction_chars": 909,
+    "solution_chars": 4595,
+    "files": 13
+  },
+  {
+    "task_id": "protein-assembly",
+    "category": "scientific-computing",
+    "difficulty": "hard",
+    "instruction_chars": 2655,
+    "solution_chars": 5316,
+    "files": 10
+  },
+  {
+    "task_id": "prove-plus-comm",
+    "category": "software-engineering",
+    "difficulty": "easy",
+    "instruction_chars": 571,
+    "solution_chars": 414,
+    "files": 7
+  },
+  {
+    "task_id": "pypi-server",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 847,
+    "solution_chars": 3086,
+    "files": 6
+  },
+  {
+    "task_id": "pytorch-model-cli",
+    "category": "model-training",
+    "difficulty": "medium",
+    "instruction_chars": 532,
+    "solution_chars": 5676,
+    "files": 13
+  },
+  {
+    "task_id": "pytorch-model-recovery",
+    "category": "model-training",
+    "difficulty": "medium",
+    "instruction_chars": 1379,
+    "solution_chars": 3326,
+    "files": 9
+  },
+  {
+    "task_id": "qemu-alpine-ssh",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 299,
+    "solution_chars": 3063,
+    "files": 6
+  },
+  {
+    "task_id": "qemu-startup",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 296,
+    "solution_chars": 1078,
+    "files": 6
+  },
+  {
+    "task_id": "query-optimize",
+    "category": "data-science",
+    "difficulty": "medium",
+    "instruction_chars": 540,
+    "solution_chars": 1654,
+    "files": 8
+  },
+  {
+    "task_id": "raman-fitting",
+    "category": "scientific-computing",
+    "difficulty": "medium",
+    "instruction_chars": 549,
+    "solution_chars": 2687,
+    "files": 7
+  },
+  {
+    "task_id": "regex-chess",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 1632,
+    "solution_chars": 72716,
+    "files": 7
+  },
+  {
+    "task_id": "regex-log",
+    "category": "data-processing",
+    "difficulty": "medium",
+    "instruction_chars": 1021,
+    "solution_chars": 485,
+    "files": 6
+  },
+  {
+    "task_id": "reshard-c4-data",
+    "category": "data-science",
+    "difficulty": "medium",
+    "instruction_chars": 1292,
+    "solution_chars": 6148,
+    "files": 9
+  },
+  {
+    "task_id": "rstan-to-pystan",
+    "category": "data-science",
+    "difficulty": "medium",
+    "instruction_chars": 1788,
+    "solution_chars": 7080,
+    "files": 11
+  },
+  {
+    "task_id": "sam-cell-seg",
+    "category": "data-science",
+    "difficulty": "hard",
+    "instruction_chars": 2535,
+    "solution_chars": 9179,
+    "files": 11
+  },
+  {
+    "task_id": "sanitize-git-repo",
+    "category": "security",
+    "difficulty": "medium",
+    "instruction_chars": 827,
+    "solution_chars": 945,
+    "files": 10
+  },
+  {
+    "task_id": "schemelike-metacircular-eval",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 1127,
+    "solution_chars": 11910,
+    "files": 137
+  },
+  {
+    "task_id": "sparql-university",
+    "category": "data-querying",
+    "difficulty": "hard",
+    "instruction_chars": 1268,
+    "solution_chars": 1600,
+    "files": 8
+  },
+  {
+    "task_id": "sqlite-db-truncate",
+    "category": "debugging",
+    "difficulty": "medium",
+    "instruction_chars": 285,
+    "solution_chars": 4235,
+    "files": 7
+  },
+  {
+    "task_id": "sqlite-with-gcov",
+    "category": "system-administration",
+    "difficulty": "medium",
+    "instruction_chars": 232,
+    "solution_chars": 633,
+    "files": 8
+  },
+  {
+    "task_id": "torch-pipeline-parallelism",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 1885,
+    "solution_chars": 3681,
+    "files": 6
+  },
+  {
+    "task_id": "torch-tensor-parallelism",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 1324,
+    "solution_chars": 4510,
+    "files": 6
+  },
+  {
+    "task_id": "train-fasttext",
+    "category": "model-training",
+    "difficulty": "hard",
+    "instruction_chars": 267,
+    "solution_chars": 790,
+    "files": 8
+  },
+  {
+    "task_id": "tune-mjcf",
+    "category": "scientific-computing",
+    "difficulty": "medium",
+    "instruction_chars": 635,
+    "solution_chars": 295,
+    "files": 9
+  },
+  {
+    "task_id": "video-processing",
+    "category": "video-processing",
+    "difficulty": "hard",
+    "instruction_chars": 1432,
+    "solution_chars": 6288,
+    "files": 8
+  },
+  {
+    "task_id": "vulnerable-secret",
+    "category": "security",
+    "difficulty": "medium",
+    "instruction_chars": 432,
+    "solution_chars": 1249,
+    "files": 7
+  },
+  {
+    "task_id": "winning-avg-corewars",
+    "category": "software-engineering",
+    "difficulty": "medium",
+    "instruction_chars": 1043,
+    "solution_chars": 7042,
+    "files": 11
+  },
+  {
+    "task_id": "write-compressor",
+    "category": "software-engineering",
+    "difficulty": "hard",
+    "instruction_chars": 373,
+    "solution_chars": 24841,
+    "files": 11
+  }
+]

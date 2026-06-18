@@ -1,0 +1,12 @@
+name: "Terminal Bench 2.0"
+description: >
+  Terminal-Bench 2.0 is a benchmark for evaluating 
+  AI agents in terminal environments. It has been adopted by frontier labs as an agent 
+  evaluation benchmark. Version 2.0 offers harder tasks with substantially improved verification, 
+  through extensive manual and LLM-assisted review. 
+evaluation_framework: harbor
+
+tasks:
+  - id: terminalbench_2
+    config: default
+    split: test

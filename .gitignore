@@ -1,0 +1,60 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv*/
+venv/
+
+# Environment / secrets
+.env
+*.env
+!*.env.template
+
+# API keys — create your own from .template files
+configs/strong.env
+configs/weak.env
+configs/weak_high_tokens.env
+standard_config.md
+
+# Personal Claude Code settings
+/.claude/
+
+# T-Bench upstream repo (clone separately)
+tb_repo/
+
+# Harbor virtual environment
+.venv_harbor/
+
+# Harbor experiment artifacts (large)
+tb_harbor_2.0/jobs*/
+tb_harbor_2.0/jobs_*/
+tb_harbor_2.0/cache/
+tb_harbor_2.0/brew_acp_batch/
+tb_harbor_2.0/brew_tasks/
+tb_harbor_2.0/brew_test/
+tb_harbor_2.0/brew_acp/
+tb_harbor_2.0/brew_ralph_test/
+tb_harbor_2.0/curator_tasks/
+tb_harbor_2.0/ralph_tasks/
+tb_harbor_2.0/serve_final/
+tb_harbor_2.0/serve_tasks/
+tb_harbor_2.0/refine_*/
+
+# Archives (large test fixtures)
+*.tar.gz
+*.zip
+
+# PDFs
+*.pdf

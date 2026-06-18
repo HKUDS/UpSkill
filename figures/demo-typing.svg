@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 60" width="520" height="60">
+  <defs>
+    <style>
+      /*
+        Cycle (6s total, infinite):
+          0%–33%  : type out    (text + cursor slide right)
+          33%–42% : pause at end
+          42%–75% : delete      (text + cursor slide left)
+          75%–100%: pause empty
+      */
+      @keyframes type-delete-loop {
+        0%    { clip-path: inset(0 100% 0 0); }
+        33%   { clip-path: inset(0 0    0 0); }
+        42%   { clip-path: inset(0 0    0 0); }
+        75%   { clip-path: inset(0 100% 0 0); }
+        100%  { clip-path: inset(0 100% 0 0); }
+      }
+
+      /* Cursor slides right during typing, left during deletion */
+      @keyframes cursor-slide {
+        0%    { transform: translateX(0);       }
+        33%   { transform: translateX(275px);   }
+        42%   { transform: translateX(275px);   }
+        75%   { transform: translateX(0);       }
+        100%  { transform: translateX(0);       }
+      }
+
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+
+      .bg   { fill: #1a1b26; stroke: #30334d; stroke-width: 1.5; rx: 8; }
+      .dot-r { fill: #f7768e; opacity: 0.8; }
+      .dot-y { fill: #e0af68; opacity: 0.8; }
+      .dot-g { fill: #9ece6a; opacity: 0.8; }
+      .prompt  { font: bold 14px 'Courier New', monospace; fill: #7dcfff; }
+      .cmd     { font: bold 14px 'Courier New', monospace; fill: #c0caf5; }
+      .args    { font: bold 14px 'Courier New', monospace; fill: #9ece6a; }
+
+      .text-line {
+        animation: type-delete-loop 6s ease-in-out infinite;
+        clip-path: inset(0 100% 0 0);
+      }
+
+      .cursor-group {
+        animation: cursor-slide 6s ease-in-out infinite;
+      }
+      .cursor-text {
+        font: 14px 'Courier New', monospace;
+        fill: #c0caf5;
+        animation: blink 0.7s infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Terminal background -->
+  <rect width="520" height="60" class="bg" />
+
+  <!-- Traffic light dots -->
+  <circle cx="14" cy="12" r="4.5" class="dot-r"/>
+  <circle cx="28" cy="12" r="4.5" class="dot-y"/>
+  <circle cx="42" cy="12" r="4.5" class="dot-g"/>
+
+  <!-- Typing text -->
+  <text x="14" y="38" class="text-line">
+    <tspan class="prompt">$ </tspan>
+    <tspan class="cmd">/upskill-run </tspan>
+    <tspan class="args">&lt;task instruction&gt;</tspan>
+  </text>
+
+  <!-- Cursor: slides with the text edge -->
+  <g class="cursor-group">
+    <text x="31" y="38" class="cursor-text">█</text>
+  </g>
+</svg>

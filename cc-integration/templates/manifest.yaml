@@ -1,0 +1,12 @@
+# Upskill Skill Manifest
+# Skill Category Library
+#
+# Categories are auto-created when you skill your first skill.
+# Trigger keywords are extracted from your task prompts.
+#
+# Manual editing supported:
+#   - Add trigger_keywords to improve matching
+#   - Add description for searchability
+
+category: default
+entries: []
