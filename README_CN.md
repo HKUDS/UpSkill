@@ -26,7 +26,7 @@
 
 ## 📰 新闻
 
-- **2026-06-14** — 首次发布：Upskill v1.0，支持 Teacher-Student 知识蒸馏、Ralph Loop 验证及完整 Claude Code 集成。
+- **2026-06-18** — 首次发布：Upskill v1.0 — 知识蒸馏框架，自动捕获 agent 任务失败、通过 Ralph Loop 蒸馏为经过验证的技能并注入未来会话，使弱模型以更低成本超越强模型，完整集成 Claude Code。
 
 ---
 
