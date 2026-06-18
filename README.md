@@ -15,7 +15,7 @@ Turn your Flash model into a Pro. No model upgrade needed.
 [![WeChat](https://img.shields.io/badge/WeChat-Group-C5EAB4?style=flat&logo=wechat&logoColor=white)](./COMMUNICATION.md)
 [![中文文档](https://img.shields.io/badge/文档-中文版-F5C6C6?style=flat)](./README_CN.md)
 
-**Integrate UpSkill into your Claude Code — with a Single Command**
+**UpSkill your Claude Code — with a Single Command**
 
 <p align="center">
 <img src="figures/demo-typing.svg" alt="Demo: /upskill-run <task instruction>" />
