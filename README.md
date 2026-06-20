@@ -27,7 +27,7 @@ Turn your Flash model into a Pro. No model upgrade needed.
 
 ## 📰 News
 
-- **2026-06-18** — Initial release: Upskill v1.0 — a knowledge distillation framework that captures agent failures, distills them into validated skills via Ralph Loop, and injects them so weaker models outperform stronger ones at lower cost, with full Claude Code integration.
+- **2026-06-18** — Initial release: Upskill v1.0 — captures agent failures, distills them into validated skills via the Ralph Loop, and injects them so Flash models outperform Pro models at lower cost. Full Claude Code integration included.
 
 ---
 
