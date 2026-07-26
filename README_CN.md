@@ -40,6 +40,7 @@
 - [📖 仓库结构](#-仓库结构)
 - [🔬 复现实验](#-复现实验)
 - [📄 许可证](#-许可证)
+- [📚 引用](#-引用)
 
 ---
 
@@ -381,6 +382,21 @@ cp configs/weak.env.template configs/weak.env
 ## 📄 许可证
 
 MIT——详见 [LICENSE](LICENSE)。
+
+---
+
+## 📚 引用
+
+本项目基于 AgentBrew 框架开展。如果您觉得本工作有帮助，请引用：
+
+```bibtex
+@article{jiang2026agentbrew,
+  title={AgentBrew: Lifelong Knowledge Brewing from Strong Teachers to Weak LLM Agents},
+  author={Jiang, Yangqin and Huang, Chao},
+  journal={arXiv preprint arXiv:2607.16851},
+  year={2026}
+}
+```
 
 ---
 

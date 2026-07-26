@@ -41,6 +41,7 @@ Turn your Flash model into a Pro. No model upgrade needed.
 - [📖 Repository Structure](#-repository-structure)
 - [🔬 Reproducing the Experiments](#-reproducing-the-experiments)
 - [📄 License](#-license)
+- [📚 Reference](#-reference)
 
 ---
 
@@ -380,6 +381,21 @@ See [`tb_harbor_2.0/REPRODUCE.md`](tb_harbor_2.0/REPRODUCE.md) for the complete 
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+## 📚 Reference
+
+This project is based on the AgentBrew framework. If you find this work helpful, please cite:
+
+```bibtex
+@article{jiang2026agentbrew,
+  title={AgentBrew: Lifelong Knowledge Brewing from Strong Teachers to Weak LLM Agents},
+  author={Jiang, Yangqin and Huang, Chao},
+  journal={arXiv preprint arXiv:2607.16851},
+  year={2026}
+}
+```
 
 ---
 
