@@ -177,12 +177,68 @@ bash "$CC_DIR/upskill-store.sh" sync --store="$UPSKILL_STORE"
 # ---- 12. Path traversal ----
 echo ""; echo "--- 12. Security ---"
 cat > "$TEST_DIR/trav.log" << 'TRAVEOF'
-===BEGIN_FILE: ../../etc/passwd===
+===BEGIN_FILE: ../traversal-target===
 malicious content
-===END_FILE: ../../etc/passwd===
+===END_FILE: ../traversal-target===
 TRAVEOF
-python3 "$CC_DIR/parse-skill.py" "$TEST_DIR/trav.log" "$TEST_DIR/trav_out" --task-name "t" 2>&1 | grep -q "REJECTED"
-check $? "Path traversal blocked"
+python3 "$CC_DIR/parse-skill.py" "$TEST_DIR/trav.log" "$TEST_DIR/trav_out" --task-name "t" > "$TEST_DIR/trav-output.log" 2>&1
+if [ ! -e "$TEST_DIR/traversal-target" ]; then traversal_blocked=0; else traversal_blocked=1; fi
+check "$traversal_blocked" "Path traversal cannot write outside output dir"
+
+# ---- 13. Remote installer HTTP failure ----
+echo ""; echo "--- 13. Remote installer HTTP failure ---"
+INSTALL_HOME="$TEST_DIR/install-home"
+MOCK_BIN="$TEST_DIR/mock-bin"
+mkdir -p "$INSTALL_HOME/.claude/hooks" "$MOCK_BIN"
+printf 'previous valid hook\n' > "$INSTALL_HOME/.claude/hooks/after-session.sh"
+cat > "$MOCK_BIN/curl" << 'CURLMOCK'
+#!/bin/bash
+output=""
+fail_on_http=false
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -o) output="$2"; shift 2 ;;
+        -*) case "$1" in *f*) fail_on_http=true ;; esac; shift ;;
+        *) shift ;;
+    esac
+done
+[ -n "$output" ] || exit 2
+if [ "${CURL_MOCK_MODE:-failure}" = "success" ]; then
+    printf 'downloaded mock content\n' > "$output"
+    exit 0
+fi
+printf '404: Not Found\n' > "$output"
+[ "$fail_on_http" = true ] && exit 22
+exit 0
+CURLMOCK
+chmod +x "$MOCK_BIN/curl"
+if HOME="$INSTALL_HOME" PATH="$MOCK_BIN:$PATH" bash "$CC_DIR/install.sh" --remote > "$TEST_DIR/install.log" 2>&1; then
+    install_status=0
+else
+    install_status=$?
+fi
+if [ "$install_status" -ne 0 ]; then expect_failure=0; else expect_failure=1; fi
+check "$expect_failure" "Remote installer rejects HTTP error"
+if [ "$(head -1 "$INSTALL_HOME/.claude/hooks/after-session.sh")" = "previous valid hook" ]; then preserved=0; else preserved=1; fi
+check "$preserved" "Failed download preserves installed hook"
+if find "$INSTALL_HOME/.claude/hooks" -type f -name 'after-session.sh.tmp.*' | grep -q .; then temp_left=1; else temp_left=0; fi
+check "$temp_left" "Failed download leaves no temporary file"
+if grep -q "Upskill CC Integration Ready" "$TEST_DIR/install.log"; then false_success=1; else false_success=0; fi
+check "$false_success" "Failed download does not report install ready"
+
+rm -rf "$INSTALL_HOME"
+mkdir -p "$INSTALL_HOME/.claude/hooks"
+printf 'previous valid hook\n' > "$INSTALL_HOME/.claude/hooks/after-session.sh"
+if HOME="$INSTALL_HOME" CURL_MOCK_MODE=success PATH="$MOCK_BIN:$PATH" bash "$CC_DIR/install.sh" --remote > "$TEST_DIR/install-success.log" 2>&1; then
+    success_status=0
+else
+    success_status=$?
+fi
+check "$success_status" "Remote installer completes after successful downloads"
+if [ "$(head -1 "$INSTALL_HOME/.claude/hooks/after-session.sh")" = "downloaded mock content" ]; then replaced=0; else replaced=1; fi
+check "$replaced" "Successful download atomically replaces installed hook"
+if grep -q "Upskill CC Integration Ready" "$TEST_DIR/install-success.log"; then ready=0; else ready=1; fi
+check "$ready" "Successful remote install reports ready"
 
 # ---- Results ----
 echo ""

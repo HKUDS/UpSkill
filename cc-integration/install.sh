@@ -130,9 +130,20 @@ log "~/.claude/{hooks,skills,upskill-store/}"
 install_file() {
     local src="$1" dest="$2"
     if $REMOTE; then
-        local url="$REPO_URL/$src"
+        local url="$REPO_URL/$src" tmp
         log "  downloading $url"
-        $DRY_RUN || curl -sSL "$url" -o "$dest" || { log "  FAILED: $url"; return 1; }
+        $DRY_RUN && return 0
+        tmp=$(mktemp "${dest}.tmp.XXXXXX") || { log "  FAILED: cannot create temporary file for $url"; return 1; }
+        if ! curl -fsSL "$url" -o "$tmp"; then
+            rm -f "$tmp"
+            log "  FAILED: $url"
+            return 1
+        fi
+        if ! mv "$tmp" "$dest"; then
+            rm -f "$tmp"
+            log "  FAILED: cannot install $url"
+            return 1
+        fi
     else
         [ -f "$src" ] || { log "  WARNING: $src not found (use --remote to download)"; return 1; }
         run cp "$src" "$dest"
@@ -145,10 +156,12 @@ for f in $HOOK_FILES; do
         after-session.sh|before-session.sh) src="hooks/$f" ;;
         *) src="$f" ;;
     esac
-    if install_file "$src" "$HOOKS_DIR/$f"; then
-        run chmod +x "$HOOKS_DIR/$f"
-        log "  $f installed"
+    if ! install_file "$src" "$HOOKS_DIR/$f"; then
+        log "ERROR: required hook $f could not be installed; aborting."
+        exit 1
     fi
+    run chmod +x "$HOOKS_DIR/$f"
+    log "  $f installed"
 done
 
 header "Installing slash commands"
@@ -156,7 +169,11 @@ for f in $SKILL_FILES; do
     skill_name="${f%.md}"
     skill_dir="$SKILLS_DIR/$skill_name"
     run mkdir -p "$skill_dir"
-    install_file "skills/$f" "$skill_dir/SKILL.md" && log "  /${skill_name} installed"
+    if ! install_file "skills/$f" "$skill_dir/SKILL.md"; then
+        log "ERROR: required slash command /${skill_name} could not be installed; aborting."
+        exit 1
+    fi
+    log "  /${skill_name} installed"
 done
 
 # Initialize upskill-store
