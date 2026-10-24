@@ -5,6 +5,7 @@ set -euo pipefail
 PROJECT_DIR="${1:-$(pwd)}"
 SETTINGS_FILE="$PROJECT_DIR/.claude/settings.local.json"
 HOOKS_DIR="$HOME/.claude/hooks"
+CLAUDE_MD="$HOME/.claude/upskill-store/CLAUDE.md"
 
 log() { echo "  $*"; }
 
@@ -12,75 +13,60 @@ echo ""
 echo "== Configuring Upskill hooks for project =="
 echo "  Project: $PROJECT_DIR"
 
-mkdir -p "$PROJECT_DIR/.claude"
+PYTHON="${PYTHON:-python3}"
+"$PYTHON" - "$SETTINGS_FILE" "$HOOKS_DIR" "$CLAUDE_MD" <<'PY'
+import json
+import shlex
+import sys
+from pathlib import Path
 
-PATCH=$(cat << EOF
-{
-  "claudeMd": "$HOME/.claude/upskill-store/CLAUDE.md",
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOOKS_DIR/capture-prompt.sh"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOOKS_DIR/before-session.sh"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOOKS_DIR/after-session.sh"
-          }
-        ]
-      }
-    ]
-  }
-}
-EOF
-)
+settings_path = Path(sys.argv[1])
+hooks_dir = Path(sys.argv[2])
+claude_md = sys.argv[3]
 
-if [ -f "$SETTINGS_FILE" ]; then
-    log "Merging into existing .claude/settings.local.json..."
-    echo "$PATCH" | python3 -c "
-import json, sys
-patch = json.load(sys.stdin)
-try:
-    existing = json.load(open('$SETTINGS_FILE'))
-except:
+if settings_path.exists():
+    try:
+        existing = json.loads(settings_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"ERROR: cannot read existing settings as JSON: {exc}")
+    if not isinstance(existing, dict):
+        raise SystemExit("ERROR: existing settings must be a JSON object")
+else:
     existing = {}
-for section in ['hooks']:
-    if section in patch:
-        for hook_type, entries in patch[section].items():
-            # Replace entire hook type array to avoid stale duplicates from older versions
-            existing.setdefault(section, {})[hook_type] = entries
-if 'claudeMd' in patch and 'claudeMd' not in existing:
-    existing['claudeMd'] = patch['claudeMd']
-with open('$SETTINGS_FILE', 'w') as f:
-    json.dump(existing, f, indent=2)
-    f.write('\n')
-"
-    log "Merged hooks into $SETTINGS_FILE"
-else
-    echo "$PATCH" > "$SETTINGS_FILE"
-    log "Created $SETTINGS_FILE"
-fi
 
+hooks = existing.setdefault("hooks", {})
+if not isinstance(hooks, dict):
+    raise SystemExit("ERROR: existing 'hooks' setting must be a JSON object")
+
+for hook_type, script_name in (
+    ("UserPromptSubmit", "capture-prompt.sh"),
+    ("SessionStart", "before-session.sh"),
+    ("SessionEnd", "after-session.sh"),
+):
+    entries = hooks.setdefault(hook_type, [])
+    if not isinstance(entries, list):
+        raise SystemExit(f"ERROR: existing hooks.{hook_type} setting must be a JSON array")
+
+    script_path = hooks_dir / script_name
+    entry = {
+        "matcher": "",
+        "hooks": [
+            {
+                "type": "command",
+                "command": f"bash {shlex.quote(str(script_path))}",
+            }
+        ],
+    }
+    if entry not in entries:
+        entries.append(entry)
+
+# Respect an existing project-specific CLAUDE.md setting.
+existing.setdefault("claudeMd", claude_md)
+
+settings_path.parent.mkdir(parents=True, exist_ok=True)
+settings_path.write_text(json.dumps(existing, indent=2) + "\n", encoding="utf-8")
+PY
+
+log "Merged Upskill hooks into $SETTINGS_FILE"
 log "Done. Hooks will run when Claude Code starts in this project."
 echo ""
